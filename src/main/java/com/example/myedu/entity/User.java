@@ -25,17 +25,20 @@ public class User {
     private String name;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Class> classes;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "UserRole",
             joinColumns = @JoinColumn(name = "userId"),
             inverseJoinColumns = @JoinColumn(name = "roleId"))
+    @JsonIgnore
     private Set<Role> roles;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "Enrollment",
-            joinColumns = @JoinColumn(name = "userId"),
+            joinColumns = @JoinColumn(name = "studentUserId"),
             inverseJoinColumns = @JoinColumn(name = "classId"))
+    @JsonIgnore
     private Set<Class> classes2;
 }

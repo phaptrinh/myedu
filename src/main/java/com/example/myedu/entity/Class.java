@@ -22,7 +22,7 @@ public class Class {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "teacherUserId")
     private User user;
 
     @ManyToOne
@@ -38,5 +38,6 @@ public class Class {
     private Time time;
 
     @ManyToMany(mappedBy = "classes2")
+    @JsonIgnore
     private Set<User> users;
 }
