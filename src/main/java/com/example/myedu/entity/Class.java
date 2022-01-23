@@ -23,19 +23,31 @@ public class Class {
 
     @ManyToOne
     @JoinColumn(name = "teacherUserId")
+    @JsonIgnore
     private User user;
+    @Column(name = "teacherUserId", insertable = false, updatable = false)
+    private int userId;
 
     @ManyToOne
     @JoinColumn(name = "subjectId")
+    @JsonIgnore
     private Subject subject;
+    @Column(name = "subjectId", insertable = false, updatable = false)
+    private int subjectId;
 
     @ManyToOne
     @JoinColumn(name = "roomId")
+    @JsonIgnore
     private Room room;
+    @Column(name = "roomId", insertable = false, updatable = false)
+    private int roomId;
 
     @ManyToOne
     @JoinColumn(name = "timeId")
+    @JsonIgnore
     private Time time;
+    @Column(name = "timeId", insertable = false, updatable = false)
+    private int timeId;
 
 //    @ManyToMany(mappedBy = "classes2")
 //    @JsonIgnore
