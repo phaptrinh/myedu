@@ -37,7 +37,11 @@ public class Class {
     @JoinColumn(name = "timeId")
     private Time time;
 
-    @ManyToMany(mappedBy = "classes2")
+//    @ManyToMany(mappedBy = "classes2")
+//    @JsonIgnore
+//    private Set<User> users;
+
+    @OneToMany(mappedBy = "aClass", cascade = CascadeType.ALL)
     @JsonIgnore
-    private Set<User> users;
+    private Set<Enrollment> enrollments;
 }
